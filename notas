@@ -1,0 +1,24 @@
+
+
+classes:
+
+    player:
+      position
+      size
+      name
+      mv speed
+      trow power
+      score
+    
+    BAll:
+    position
+    vert spee
+    hspeed
+    
+    
+    
+Draw initial scenario.
+implement logic
+
+    
+    
