@@ -8,7 +8,7 @@ using namespace std;
 class Game
 { 
 
-
+	bool over;
 	int cmp;
 	int lrg;
 	Player p1, p2;
@@ -19,6 +19,7 @@ class Game
 	Game(int cmp,int lrg);
 
     void drawgame();
+	void comands(char control,char control2);
 
 };
 
@@ -29,6 +30,7 @@ Game::Game(int cmp, int lrg)
 	this->p2 = new Player();
 	this->cmp = cmp;
 	this->lrg = lrg;
+	over = false;
 
 }
 void Game:: drawgame()
@@ -83,5 +85,37 @@ void Game:: drawgame()
 	}
 	for (i = 0; i < this->cmp; i++)
 		cout << "#";
+}
+
+void Game ::comands(char control1, char control2)
+{
+	
+	switch (control1) {
+
+	case (int)"q":
+		p1.moveUp;
+
+	case (int)"a":
+		p1.moveDown;
+
+	default:
+		p1.idle;
+
+	}
+	switch (control2){
+	
+	
+		case (int)"o":
+			p2.moveUp;
+
+		case (int)"l":
+			p2.moveUp;
+
+		default:
+			p2.idle;
+	
+	}
+
+
 }
 
