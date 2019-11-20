@@ -1,42 +1,57 @@
 #pragma once
+#include<iostream>
 
 class Player
 {
-	int vertPosition;
-	int playerNumber;
+	int position[2];
+	static int playerNumber;
 	int size;
 	int speed;
 
-	Player(int position, int playerNumber);
+	
+    public:Player();
 	void moveUp();
 	void moveDown();
+	void idle();
 	void setSpeed(int speed);
 	void IncreaseSize();
 	void setSpeed(int speed);
+	void draw(int fieldSize);
 	
-	int getPosition();
+	public:int* getPosition();
+	public:int getPlayerNumber();
+	public:int getSize();
+	public:int getSpeed();
 	
 	
 
 
 };
 
-Player::Player(int position, int playerNumber)
+
+Player::Player()
 {
-	this->vertPosition = position;
-	this->playerNumber = playerNumber;
+	*this->position = {0};
+	this->playerNumber++;
 	this->size = 3;
 	this->speed = 1;
 }
 
 void Player:: moveUp()
 {
-	vertPosition--;
+	position[1] = position[0];
+	position[0]--;
 }
 
 void Player::moveDown()
 {
-	vertPosition++;
+	position[1] = position[0];
+	position[0]++;
+}
+
+void Player::idle()
+{
+	position[1] = position[0];
 }
 
 void Player::IncreaseSize() 
@@ -49,9 +64,48 @@ void Player:: setSpeed(int speed)
 	this->speed = speed;
 }
 
-int Player::getPosition() 
+int* Player::getPosition() 
 {
-	return vertPosition;
+	return position;
+}
+
+int Player:: getPlayerNumber() 
+{
+	return playerNumber;
+}
+
+int Player::getSize()
+{
+	return size;
+}
+
+int Player::getSpeed()
+{
+	return speed;
+}
+void Player:: draw(int fieldSize) 
+{
+	int pHoriPos,i,j;
+	if (playerNumber == 1)
+		pHoriPos = 0;
+	else
+		pHoriPos = fieldSize;
+
+	for (j = 0; j < size; j++) 
+	{
+		for (i = 0; i < pHoriPos; i++)
+		{
+			cout << " ";
+		}
+		cout<<"#"<<endl;
+	}
+		
+		
+		
+
+
+
+
 }
 
 
