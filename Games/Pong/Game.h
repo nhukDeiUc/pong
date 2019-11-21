@@ -8,13 +8,17 @@ using namespace std;
 class Game
 { 
 
+private:
+
 	bool over;
 	int cmp;
 	int lrg;
-	Player p1, p2;
+	Player p1; 
+	Player p2;
 	Ball b;
 	
 
+public:
 
 	Game(int cmp,int lrg);
 
@@ -26,8 +30,7 @@ class Game
 
 Game::Game(int cmp, int lrg)
 {
-	this->p1 = new Player();
-	this->p2 = new Player();
+
 	this->cmp = cmp;
 	this->lrg = lrg;
 	over = false;
@@ -59,21 +62,21 @@ void Game:: drawgame()
 	cout << endl;
 
 
-	for (i = 0; i < this->lrg; i++)
+	for (int i = 0; i < this->lrg; i++)
 	{
-		for (j = 0; j < this->cmp; j++) {
+		for (int j = 0; j < this->cmp; j++) {
 
-			if (i == b.getPosY && b.getPosX==j)
+			if (i == b.getPosY() && b.getPosX() ==j)
 			{
 				cout << "0";
 			}
-			if (i >= p1.getPosition && i <= p1.getPosition + p1.getSize && p1HoriPos==j)
+			if (i >= p1.getPosition()[1] && i <= p1.getPosition()[1] + p1.getSize() && p1HoriPos == j)
 			{
 				cout << "#";
 
 			}
 
-			if (i >= p2.getPosition && i <= p2.getPosition + p2.getSize && p2HoriPos==j)
+			if (i >= p2.getPosition()[1] && i <= p2.getPosition()[1] + p2.getSize() && p2HoriPos == j)
 			{
 					cout << "#";
 			}
@@ -92,30 +95,29 @@ void Game ::comands(char control1, char control2)
 	
 	switch (control1) {
 
-	case (int)"q":
-		p1.moveUp;
+	case 'q':
+		p1.moveUp();
 
-	case (int)"a":
-		p1.moveDown;
+	case 'a':
+		p1.moveDown();
 
 	default:
-		p1.idle;
+		p1.idle();
 
 	}
+
 	switch (control2){
 	
 	
-		case (int)"o":
-			p2.moveUp;
+		case 'o':
+			p2.moveUp();
 
-		case (int)"l":
-			p2.moveUp;
+		case 'l':
+			p2.moveUp();
 
 		default:
-			p2.idle;
+			p2.idle();
 	
 	}
 
-
 }
-
