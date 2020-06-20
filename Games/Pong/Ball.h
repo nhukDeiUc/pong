@@ -2,6 +2,8 @@
 
 class Ball 
 {
+private:
+	
 	int speed;
 	int posX;
 	int posY;

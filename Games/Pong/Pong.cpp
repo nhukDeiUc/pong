@@ -4,11 +4,14 @@
 #include <iostream>
 #include"Game.h"
 
+
+
+int Player::playerNumber = 0;
 int main()
 {
 
 	Game v = Game(60,20);
-		v.drawgame();
+	v.drawgame();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

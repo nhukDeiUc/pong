@@ -1,30 +1,30 @@
 #pragma once
 #include<iostream>
+using namespace std;
 
 class Player
 {
+private:
+
 	int position[2];
 	static int playerNumber;
 	int size;
 	int speed;
 
 	
-    public:Player();
+public:
+
+	Player();
 	void moveUp();
 	void moveDown();
 	void idle();
-	void setSpeed(int speed);
 	void IncreaseSize();
 	void setSpeed(int speed);
 	void draw(int fieldSize);
-	
-	public:int* getPosition();
-	public:int getPlayerNumber();
-	public:int getSize();
-	public:int getSpeed();
-	
-	
-
+	int* getPosition();
+	int getPlayerNumber();
+	int getSize();
+	int getSpeed();
 
 };
 
@@ -99,15 +99,4 @@ void Player:: draw(int fieldSize)
 		}
 		cout<<"#"<<endl;
 	}
-		
-		
-		
-
-
-
-
 }
-
-
-
-
